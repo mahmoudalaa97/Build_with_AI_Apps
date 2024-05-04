@@ -1,6 +1,6 @@
 # Find Product Details With AI
 
-This App uses Gemini API for using Generative AI to find the product details from images picked
+This App uses Gemini API for build the question game.
 
 ## Requirement
 
@@ -10,24 +10,17 @@ This App uses Gemini API for using Generative AI to find the product details fro
 ### Work History
 
 - [x] Init Project
-- [x] Build the UI
-- [x] Create a product model
-- [x] Initi the logic for the Gemini API
+- [ ] Setup the Firebase
+- [ ] Build the Auth Modules
+- [ ] Build the Home Page
+- [ ] Build the Question Page
+- [ ] Build the Result Page
+- [ ] Build the Profile Page
 - [ ] Test The App
 
 ### Plugin Use
 
-- image_picker: ^1.0.8
-
-> Use this plugin to pick images from the camera or gallery
-
 - google_generative_ai: ^0.3.1
-
-> Use this plugin to integration with Gemini API
-
-- flutter_easyloading: ^3.0.5
-
-> Use this plugin to show the user Loading after showing the response
 
 -----------
 

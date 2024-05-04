@@ -1,4 +1,4 @@
-import 'package:build_with_ai_workshop/generate_product_details_page.dart';
+import 'package:build_with_ai_workshop/home_page.dart';
 import 'package:flutter/material.dart';
 
 /// Get the API key from the environment.
@@ -16,11 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Build With AI',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: false,
       ),
-      home: const GenerateImageDetails(),
+      home: const HomePage(),
     );
   }
 }
-
