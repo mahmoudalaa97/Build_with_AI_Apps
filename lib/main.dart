@@ -1,3 +1,4 @@
+import 'package:build_with_ai_workshop/generate_product_details_page.dart';
 import 'package:flutter/material.dart';
 
 /// Get the API key from the environment.
@@ -23,20 +24,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class GenerateImageDetails extends StatelessWidget {
-  const GenerateImageDetails({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Generate Product Details"),
-      ),
-      body: const Center(
-          child: Text(
-        'Generate Product Details with AI',
-        style: TextStyle(fontSize: 20),
-      )),
-    );
-  }
-}
