@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "952072927002",
+    "project_id": "game-questions-build-with-ai",
+    "storage_bucket": "game-questions-build-with-ai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952072927002:android:104add49def92ebdd45ea3",
+        "android_client_info": {
+          "package_name": "com.example.build_with_ai_workshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYGR-25LTbCs8naoR0hOlS-bkWjymC0oQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952072927002:android:8d953af1dc483c22d45ea3",
+        "android_client_info": {
+          "package_name": "com.mahmoudalaa.build_with_ai_workshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYGR-25LTbCs8naoR0hOlS-bkWjymC0oQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

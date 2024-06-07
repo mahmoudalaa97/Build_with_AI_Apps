@@ -1,9 +1,15 @@
+import 'package:build_with_ai_workshop/firebase_options.dart';
 import 'package:build_with_ai_workshop/home_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 /// Get the API key from the environment.
 const String apiKey = String.fromEnvironment('API_KEY');
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
