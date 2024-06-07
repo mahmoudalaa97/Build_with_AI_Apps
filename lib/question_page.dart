@@ -1,3 +1,4 @@
+import 'package:build_with_ai_workshop/home_page.dart';
 import 'package:build_with_ai_workshop/questions_model.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class QuestionsPage extends StatefulWidget {
 
 class _QuestionsPageState extends State<QuestionsPage> {
   int currentQuestion = 0;
+  int playerScore = 0;
 
   String selectedAnswer = "";
 
@@ -19,12 +21,66 @@ class _QuestionsPageState extends State<QuestionsPage> {
       widget.questions.elementAtOrNull(currentQuestion);
 
   void onQuestionClick(String answer) async {
+    print((widget.questions.length - 1) == currentQuestion);
+    if ((widget.questions.length - 1) == currentQuestion) {
+      await showDialog(
+          context: context,
+          builder: (context) {
+            return Center(
+              child: Dialog(
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10, bottom: 10, left: 30, right: 30),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          "Game Finished",
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          "Your Score is ( $playerScore / ${widget.questions.length} )",
+                          style: const TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w300),
+                        ),
+                        MaterialButton(
+                            onPressed: () {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const HomePage(),
+                                ),
+                                (route) => false,
+                              );
+                            },
+                            child: const Text("Back to Home"))
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          });
+      return;
+    }
     if (answer == _getCurrentQuestion?.correctAnswer) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("Correct")));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Correct"),
+        duration: Duration(milliseconds: 800),
+        backgroundColor: Colors.green,
+      ));
+      playerScore++;
     } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("Wrong")));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text("Wrong"),
+        duration: Duration(milliseconds: 800),
+        backgroundColor: Colors.red,
+      ));
     }
     await Future.delayed(const Duration(milliseconds: 500));
 
@@ -42,7 +98,17 @@ class _QuestionsPageState extends State<QuestionsPage> {
         padding: const EdgeInsets.all(40.0),
         child: Column(
           children: [
-            Text(_getCurrentQuestion?.question ?? ""),
+            Row(
+              children: [
+                const Spacer(),
+                Text(_getCurrentQuestion?.question ?? ""),
+                Expanded(
+                    child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                            "${currentQuestion + 1}/${widget.questions.length}")))
+              ],
+            ),
             const Spacer(),
             GridView.builder(
               itemCount: _getCurrentQuestion?.answers.length,

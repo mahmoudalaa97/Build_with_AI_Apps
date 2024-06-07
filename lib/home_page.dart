@@ -4,6 +4,7 @@ import 'package:build_with_ai_workshop/main.dart';
 import 'package:build_with_ai_workshop/question_page.dart';
 import 'package:build_with_ai_workshop/questions_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,18 +21,23 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      backgroundColor: Colors.black12,
       body: Center(
           child: MaterialButton(
+        height: 60,
+        minWidth: 300,
         onPressed: onGenerateGame,
-        color: Colors.amber,
-        child: const Text("Generate Game"),
+        color: const Color(0xfff9ab00),
+        child: const Text(
+          "Generate Game",
+          style: TextStyle(color: Color(0xff000000), fontSize: 20),
+        ),
       )),
     );
   }
 
   void onGenerateGame() async {
     try {
+      EasyLoading.show(status: 'Generating The Game ');
       final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
       const prompt =
           '''generate 10 questions game for the flutter topic , response back with a direct json  representation, the json should have these properties {questions: List { question_name: String, answers: List<String>, correct_answer:String }}, 4 answers with short text max length 30 characters  if they are available.''';
@@ -52,15 +58,21 @@ class _HomePageState extends State<HomePage> {
       navigatorToQuestionGamePage(questionsModel);
     } on Exception catch (e) {
       debugPrint('Error: $e');
+    } finally {
+      EasyLoading.dismiss();
     }
   }
 
   void navigatorToQuestionGamePage(List<QuestionModel> questionsModel) {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => QuestionsPage(
-        questions: questionsModel,
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => QuestionsPage(
+          questions: questionsModel,
+        ),
       ),
-    ));
+      (route) => false,
+    );
   }
 }
 
