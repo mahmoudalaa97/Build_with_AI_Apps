@@ -1,4 +1,4 @@
-import 'package:build_with_ai_workshop/generate_product_details_page.dart';
+import 'package:build_with_ai_workshop/recipe_page.dart';
 import 'package:flutter/material.dart';
 
 /// Get the API key from the environment.
@@ -19,8 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: false,
       ),
-      home: const GenerateImageDetails(),
+      home: const RecipeGeneratedPage(),
     );
   }
 }
-
