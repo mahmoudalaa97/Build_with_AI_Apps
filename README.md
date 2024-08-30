@@ -11,8 +11,8 @@ Welcome to the **Build With AI Workshop**! This project showcases how to create 
 ## App Preview
 
 <p align="center">
-  <img src="https://github.com/mahmoudalaa97/Build_with_AI_Apps/blob/recipes_app_with_ai/assets/en_app.png?raw=true" alt="Generate Recipe With AI" width="300">
-  <img src="https://github.com/mahmoudalaa97/Build_with_AI_Apps/blob/recipes_app_with_ai/assets/ar_app.png?raw=true" alt="Generate Recipe With AI" width="300">
+  <img src="https://github.com/mahmoudalaa97/Build_with_AI_Apps/blob/recipes_app_with_ai/assets/en_app.png?raw=true" alt="Generate Recipe With AI" width="500">
+  <img src="https://github.com/mahmoudalaa97/Build_with_AI_Apps/blob/recipes_app_with_ai/assets/ar_app.png?raw=true" alt="Generate Recipe With AI" width="500">
 </p>
 
 # How to run
