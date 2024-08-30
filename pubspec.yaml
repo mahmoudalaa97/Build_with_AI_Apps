@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   image_picker: ^1.0.8
   google_generative_ai: ^0.3.1
-  flutter_easyloading: ^3.0.5
+  flutter_markdown: ^0.6.20
 
 dev_dependencies:
   flutter_test:
